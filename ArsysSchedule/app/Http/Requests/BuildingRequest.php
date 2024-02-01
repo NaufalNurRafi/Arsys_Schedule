@@ -1,0 +1,37 @@
+<?php
+
+namespace App\Http\Requests;
+
+use Illuminate\Foundation\Http\FormRequest;
+
+class BuildingRequest extends FormRequest
+{
+    /**
+     * Determine if the user is authorized to make this request.
+     *
+     * @return bool
+     */
+    public function authorize()
+    {
+        return false;
+    }
+
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array
+     */
+    public function rules()
+    {
+        return [
+            'uniqueid' => 'required|integer', 
+            'session_id'=> 'nullable', 
+            'abbreviation'=> 'required', 
+            'name'=> 'required', 
+            'coordinate_x'=> 'integer', 
+            'coordinate_y'=>'integer', 
+            'external_uid'=>'required|integer',
+    
+        ];
+    }
+}
